@@ -155,7 +155,11 @@ Permite indicar las clases que serán excluidas
 ./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-class Clase1.java, Clase2.java
 ```
 
-
+### incluye-test
+Incluye los test del plugin : yes | no
+```shell
+./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin    includes-test  yes
+```
 
 
 ## **¿Qué ocurre internamente?**
