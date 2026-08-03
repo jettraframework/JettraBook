@@ -213,6 +213,6 @@ Secciones del archivo plugin-descriptor.md
              ## PageWidgetAll
              ## ActionWidgetAllow
              ## SecurityRole
-```shell
+```
 
 
