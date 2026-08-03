@@ -259,4 +259,36 @@ JettraServer.resolvePath("/myplugin/dashboard"))
 ```
 
 
+---
+# install-plugin
+Instalar  plugin mediante Comando de Instalación
+```shell
+./mvn-jettra install-plugin MiPlugin
+```
+
+Instala indicando la ruta del proyecto o el nombre del plugin si ya existe como archivo JAR o dependencia Maven.
+Genera o actualiza el archivo plugin-config.json con información de roles del plugin.
+Compila con mvn clean install e inyecta la dependencia en el pom.xml principal.
+Lee plugin-descriptor.md e inyecta los menús delimitados por marcadores en TemplatePage.java sin duplicar código.
+
+## Que ocurre al instalar un plugin?
+
+Se genera el archivo plugin-config.json que contendrá información sobre los plugins y los sinónimos de roles. Estos enum se pasaron de manera dinámica al plugin en los atributos  @PageWidgetAllow y @ActionWidgetAllow.  Reemplazando en el plugin el valor  pjc.<nombre-plugin>.AppRole.  
+Como por ejemplo 
+```java
+ @PageWidgetAllow(role = { pjc.<nombre-plugin>.AppRole.ADMIN, pjc.<nombre-plugin>.AppRole.MANAGER }) 
+```
+---
+# plugin-config.md
+Contiene información sobre el plugin generado.
+Se genera a partir del archivo plugin-descriptor.md del plugin  y permite especificar los sinónimos para los roles que usa la aplicación y estos serán usados en el plugin sin necesidad de modificar el plugin.
+Contenido del archivo
+ 
+id: representa el nombre del plugin
+roles: Es un array con los roles del plugin y los del aplicativo actual.
+
+En el ejemplo la aplicación usa los roles ADMINISTRADOR ,GERENTE y USER.
+
+Especifique los roles sinónimos entre el plugin y la aplicación actual.
+
 
