@@ -161,27 +161,11 @@ Incluye los test del plugin : yes | no
 ./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin    includes-test  yes
 ```
 
+----
+## plugin-descriptor.md
+Archivo con información del plugin.
 
 ## **¿Qué ocurre internamente?**
 
-1. **Propiedades**: Se generan archivos `messages-<nombre-plugin>.properties` y se actualizan las anotaciones `@InjectProperties`.  
-2. **Rutas**: Se modifica el path de los componentes `@Page` (ej. `/person` pasa a `/miplugin/person`) para evitar conflictos.  
-3. **Roles**: Se cambian las restricciones de `jcf.AppRole` a `pjc.<nombre-plugin>.AppRole`.  
-4. **Descriptor**: Se crea el archivo `plugin-descriptor.md` en `/resources` con información de menús y restricciones.
-
-# **4\. Instalación de Plugins (`install-plugin`)**
-
-Este comando integra el plugin en el proyecto principal.
-
-* **Mecánica**: Compila el plugin, lo añade como dependencia al `pom.xml` e inyecta los menús en `TemplatePage.java` sin duplicar código.  
-* **Configuración de Roles**: Genera el archivo `plugin-config.json`. Este archivo permite mapear los roles del plugin con los de la aplicación actual (sinónimos).
-
-**Ejemplo de uso:**  
-`./mvn-jettra install-plugin MiPlugin`
-
-# **5\. Configuración de Maven (`settings.xml`)**
-
-Para un funcionamiento óptimo, se debe configurar el archivo `settings.xml` de Maven definiendo el repositorio local y activando el perfil de Jettra con la versión de Java correspondiente (Java 25).l
-
-jettra-profile  
-
+1. **Propiedades**: Se generan archivos `messages-<nombre-plugin>.properties` y se actualizan las anotaciones `@InjectProperties a @@InjectProperties(name = "messages-<nombre-plugin>")`.
+2. Se genera en el plugin el archivo **plugin-descriptor.md**
