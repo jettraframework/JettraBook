@@ -164,6 +164,12 @@ Incluye los test del plugin : yes | no
 ----
 ## plugin-descriptor.md
 Archivo con información del plugin.
+La información del plugin se encuentra en un archivo descriptor llamado plugin-descriptor.md
+En el plugin generado  contendrá en la carpeta /resources  el archivo plugin-descriptor.md . 
+Este archivo contiene información sobre:
+El menú que se definió en la clase  TemplatePage.java. Permitiendo que al integrarse con install-plugin reconstruya el menú anexando al existente en la aplicación que usa el plugin. 
+Los Test siempre y cuando se indice include-test yes.
+
 
 ### **¿Qué ocurre internamente?**
 
@@ -200,12 +206,7 @@ por
 
 ### Archivo plugin-descriptor.md
 Contiene información sobre el plugin generado :
-* Restrictions & Menus información de los menús para usarse con TemplatePage.java
-* Información sobre los roles a nivel de página y de método.
-   @PageWidgetAllow
-   @ActionWidgetAllow
 Secciones del archivo plugin-descriptor.md
-
 ```shell
 # Plugin Descriptor for MiPlugin
 
@@ -215,4 +216,35 @@ Secciones del archivo plugin-descriptor.md
              ## SecurityRole
 ```
 
+
+* Restrictions & Menus información de los menús para usarse con TemplatePage.java
+* Información sobre los roles a nivel de página y de método.
+   @PageWidgetAllow
+   @ActionWidgetAllow
+* SecurityRole: Información sobre los roles de autenficación  JWT.
+
+## SecurityRole
+Es la configuracion de roles establecidos en jettra-config.properties
+security.roles=ADMIN,MANAGER,DEMO
+
+Validan la seguridad de los controller mediante 
+@RolesAllowed({systemRole.ADMIN})
+El uso de sinónimos de nombres de roles  se explica más adelante.
+
+---
+# generate-plugin @Page(path)
+Para evitar conflictos con otros plugins y páginas se modifica el path de los componentes asociados a @Page de la siguiente manera:
+```shell
+@Page(path =”<nombre-plugin>/rutapagina)
+```
+por ejemplo
+```shell
+@Page(path = "/person")
+public class PersonPage extends TemplatePage { }
+```
+Quedaria
+```shell
+@Page(path = "/myplugin/person")
+public class PersonPage extends TemplatePage { }
+```
 
