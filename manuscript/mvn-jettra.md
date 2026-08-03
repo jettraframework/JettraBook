@@ -120,9 +120,21 @@ Permite convertir un proyecto Jettra en un plugin independiente.
 * **exclude-class**: Clases específicas a excluir.  
 * **incluye-test**: Define si se integran las pruebas (`yes`|`no`).
 
-## **Ejemplo de Sintaxis**
+## generate-plugin -path -name
+### **Ejemplo de Sintaxis**
 
-`./mvn-jettra generate-plugin -path ~/Descargas -name MiPlugin exclude-package com.avbravo.general incluye-test yes`
+**Sintaxis Recomendada**
+Utiliza parámetros explícitos para mayor seguridad y control en la ubicación del proyecto:
+
+```shell
+./mvn-jettra generate-plugin -path -name [opciones]
+```
+
+Ejemplo
+```shell
+./mvn-jettra generate-plugin -path ~/Descargas -name MiPlugin 
+```
+
 
 ## **¿Qué ocurre internamente?**
 
