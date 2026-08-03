@@ -106,7 +106,6 @@ Para obtener el plugin JettraFluxExample del repositorio central ejecute
 ./mvn-jettra installJettraFluxExample
 ```
 
-
 ---
 # **. Generación de Plugins (`generate-plugin`)**
 
@@ -134,6 +133,24 @@ Ejemplo
 ```shell
 ./mvn-jettra generate-plugin -path ~/Descargas -name MiPlugin 
 ```
+
+## generate-plugin exclude-plugin exclude-package
+
+### exclude-plugin
+Utiliza parámetros exclude-plugin para excluir plugins añadidos que no seran pasados al nuevo plugin.
+```shell
+./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-plugin plugin1,plugin2 
+```
+### exclude-package
+Construye el plugin directamente en el directorio de trabajo actual si omitas -path:
+
+```shell
+
+./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-package com.avbravo.general, com.avbravo.prueba exclude-class Clase1.java, Clase2.java incluye-test yes
+
+```
+
+
 
 
 ## **¿Qué ocurre internamente?**
