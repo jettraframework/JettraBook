@@ -198,9 +198,21 @@ por
         private Properties msg;
 
 
+### Archivo plugin-descriptor.md
+Contiene información sobre el plugin generado :
+* Restrictions & Menus información de los menús para usarse con TemplatePage.java
+* Información sobre los roles a nivel de página y de método.
+   @PageWidgetAllow
+   @ActionWidgetAllow
+Secciones del archivo plugin-descriptor.md
 
+```shell
+# Plugin Descriptor for MiPlugin
 
-
-
+             ## Restrictions & Menus
+             ## PageWidgetAll
+             ## ActionWidgetAllow
+             ## SecurityRole
+```shell
 
 
