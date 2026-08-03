@@ -70,6 +70,7 @@ Muestra en consola la ayuda de los comandos disponibles
 ./mvn-jettra help
 ```
 
+![](resources/mvn-jettra/help.png)
 ---
 
 # list-plugin
@@ -292,3 +293,4 @@ En el ejemplo la aplicación usa los roles ADMINISTRADOR ,GERENTE y USER.
 Especifique los roles sinónimos entre el plugin y la aplicación actual.
 
 
+![](figura_01_03.png)
