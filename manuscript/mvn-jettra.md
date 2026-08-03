@@ -62,6 +62,16 @@ mvn -q exec:java -Dexec.mainClass="io.jettra.server.cli.PluginCLI" -Dexec.args="
 | `remove-plugin` | Elimina las configuraciones y dependencias del plugin en el proyecto. |
 
 
+---
+# Help
+Muestra en consola la ayuda de los comandos disponibles
+
+```shell
+./mvn-jettra help
+```
+
+---
+
 # **. Generación de Plugins (`generate-plugin`)**
 
 Permite convertir un proyecto Jettra en un plugin independiente.
