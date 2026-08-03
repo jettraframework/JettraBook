@@ -76,9 +76,12 @@ Muestra en consola la ayuda de los comandos disponibles
 # list-plugin
 Muestra los repositorios alojados en  [https://github.com/avbravo/jettrahub.git](https://github.com/avbravo/jettrahub.git)
 
+![](resources/mvn-jettra/list-plugin-hub.png)
+
 ```shell
 ./mvn-jettra list-plugin
 ```
+![](resources/mvn-jettra/list-plugin-console.png)
 
 ---
 # get-plugin
@@ -86,12 +89,20 @@ Obtener plugins del repositorio
 Realiza los siguientes procesos
 1. Verifica en github el archivo de configuración <nombre-plugin>.json en Jettrahub y configura el archivo pom.xml con  el plugin
 
+![](resources/mvn-jettra/get-plugin-hub.png)
+
 Para obtener el plugin JettraFluxExample del repositorio central ejecute
 
 ```shell
 ./mvn-jettra get-plugin JettraFluxExample
 ```
+
+![](resources/mvn-jettra/get-plugin-fetch.png)
+
+
 2. De manera automática añade el repositorio jitpack.io
+
+![](resources/mvn-jettra/get-plugin-repository.png)
 
 ```xml
 <repositories>
@@ -100,11 +111,25 @@ Para obtener el plugin JettraFluxExample del repositorio central ejecute
        <url>https://jitpack.io</url>
    </repository>
 </repositories>
+
+
 ```
-3. Proceda a instalar el plugin
+3. Añade la dependencia
+
+![](resources/mvn-jettra/get-plugin-dependency.png)
+
+
+4. Genere el archivo jar del proyecto
+
+```shell
+mvn clean verify
+```
+
+
+5. Proceda a instalar el plugin
    
 ```shell
-./mvn-jettra installJettraFluxExample
+./mvn-jettra install JettraFluxExample
 ```
 
 ---
@@ -184,10 +209,19 @@ por **@PageWidgetAllow(role = { pjc.<nombre-plugin>.AppRole.ADMIN, pjc.<nombre-p
 El archivo jettra-config.properties  conocido como  jcf contiene la lista de roles permitidos para @PageWidgetAllow y @ActionWidgetAllow
 por ejemplo:
 app.roles=ADMIN,MANAGER, USER
+
+![](resources/mvn-jettra/generate-plugin-jettra-config.png)
+
+
+
 6. De manera automática se generan las enums que se puede acceder mediante jcf (Jettra-config file) AppRole que indica que es la propiedad app.roles del archivo jettra-config.properties.
 Por ejemplo
 @PageWidgetAllow(role = { jcf.AppRole.ADMIN, jcf.AppRole.MANAGER })
 @ActionWidgetAllowrole = { jcf.AppRole.ADMIN, jcf.AppRole.MANAGER })
+
+![](resources/mvn-jettra/generate-plugin-personpage.png)
+
+
 
 
 ### Como funciona?
