@@ -35,7 +35,7 @@ Es el directorio autorizado para plugins de Jettra donde se pueden compartir o d
 ## Herramienta CLI: mvn-jettra
 La administración se realiza mediante el script mvn-jettra.sh, el archivo de script utiliza JettraAppServer para interactuar con el sistema.  
 
-Estructura del archivo (mvn-jettra.sh)
+Contenido del archivo (mvn-jettra)
 
 ```shell
 
