@@ -165,7 +165,42 @@ Incluye los test del plugin : yes | no
 ## plugin-descriptor.md
 Archivo con información del plugin.
 
-## **¿Qué ocurre internamente?**
+### **¿Qué ocurre internamente?**
 
 1. **Propiedades**: Se generan archivos `messages-<nombre-plugin>.properties` y se actualizan las anotaciones `@InjectProperties a @@InjectProperties(name = "messages-<nombre-plugin>")`.
 2. Se genera en el plugin el archivo **plugin-descriptor.md**
+3. Se actualiza las restricciones a nivel de página y métodos cambiando
+**@PageWidgetAllow(role = { jcf.AppRole.ADMIN, jcf.AppRole.MANAGER })**
+por **@PageWidgetAllow(role = { pjc.<nombre-plugin>.AppRole.ADMIN, pjc.<nombre-plugin>.AppRole.MANAGER })**
+4. pjc: Plugin Json Config indica que se leera del archivo **plugin-config.json**(Se creará al ejecutar install-plugin), y genera de manera automática enum, por cada plugin agregado correspondientes a los roles. En  el plugin el enum temporal se  excluye del plugin compilado para que no genere conflictos con otros plugin y con el proyecto base.
+5. Para entender qué ocurre internamente necesitamos entender el funcionamiento interno de Jettra.
+El archivo jettra-config.properties  conocido como  jcf contiene la lista de roles permitidos para @PageWidgetAllow y @ActionWidgetAllow
+por ejemplo:
+app.roles=ADMIN,MANAGER, USER
+6. De manera automática se generan las enums que se puede acceder mediante jcf (Jettra-config file) AppRole que indica que es la propiedad app.roles del archivo jettra-config.properties.
+Por ejemplo
+@PageWidgetAllow(role = { jcf.AppRole.ADMIN, jcf.AppRole.MANAGER })
+@ActionWidgetAllowrole = { jcf.AppRole.ADMIN, jcf.AppRole.MANAGER })
+
+
+### Como funciona?
+El componente principal es la generación de plugin, basado en un proyecto existente se ejecuta el comando generate-plugin que creará un proyecto nuevo con algunas restricciones que se detallan a continuación:
+* Creará un proyecto Java Maven en el directorio especificado
+* En este proyecto analizará el archivo pom.xml del archivo existente y no tomará en cuenta los plugins que se excluyen mediante exclude-plugin.
+* Descartara las clases Java que se excluyan mediante exclude-class.
+* Descarta los  plugins excluidos mediante exclude-plugin.
+* Renombra los archivos messages.properties en el plugin por messages-<nombre-plugin>.properties
+Modifica las clases que contengan @InjectProperties asignando el nuevo nombre de archivos .properties
+       @InjectProperties(name = "messages")
+        private Properties msg;
+por 
+      @InjectProperties(name = "messages-<nombre-plugin>")
+        private Properties msg;
+
+
+
+
+
+
+
+
