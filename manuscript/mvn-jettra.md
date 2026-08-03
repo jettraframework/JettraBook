@@ -72,6 +72,42 @@ Muestra en consola la ayuda de los comandos disponibles
 
 ---
 
+# list-plugin
+Muestra los repositorios alojados en  [https://github.com/avbravo/jettrahub.git](https://github.com/avbravo/jettrahub.git)
+
+```shell
+./mvn-jettra list-plugin
+```
+
+---
+# get-plugin
+Obtener plugins del repositorio
+Realiza los siguientes procesos
+1. Verifica en github el archivo de configuración <nombre-plugin>.json en Jettrahub y configura el archivo pom.xml con  el plugin
+
+Para obtener el plugin JettraFluxExample del repositorio central ejecute
+
+```shell
+./mvn-jettra get-plugin JettraFluxExample
+```
+2. De manera automática añade el repositorio jitpack.io
+
+```xml
+<repositories>
+   <repository>
+       <id>jitpack.io</id>
+       <url>https://jitpack.io</url>
+   </repository>
+</repositories>
+```
+3. Proceda a instalar el plugin
+   
+```shell
+./mvn-jettra installJettraFluxExample
+```
+
+
+---
 # **. Generación de Plugins (`generate-plugin`)**
 
 Permite convertir un proyecto Jettra en un plugin independiente.
