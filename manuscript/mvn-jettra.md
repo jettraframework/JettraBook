@@ -4,6 +4,28 @@
 Guía completa de generación, instalación y administración autónoma de módulos JettraFlux
 Este documento detalla el uso del PluginCLI, un entorno aislado para la generación 100% autónoma de proyectos Jettra mediante comandos de consola, facilitando la creación, instalación y eliminación de plugins JettraFlux.
 
+
+## Descripcion
+* Facilita la creación, instalación y eliminación de plugins JettraFlux a través de la terminal mediante una generación 100% autónoma y plantillas nativas, garantizando un entorno aislado.
+
+* A partir de un proyecto Java Maven se genera una estructura simplificada llamada plugin que se almacena en un archivo .jar
+
+* Este archivo jar contiene las clases necesarias  y archivos properties para integrar la funcionalidad en un proyecto superior que lo usara como una simple dependencia.
+
+* Permite la reutilización de funcionalidades sin necesidad de reescribir los componentes y su comportamiento.
+
+* Un plugin  ahorra tiempo de desarrollo y pruebas.
+
+* Tus proyectos personales/empresariales los puedes convertir en plugin
+
+* Para uso interno o compartirlos con la comunidad mediante jettrahub.
+
+# JettraHub
+Es el directorio autorizado para plugins de Jettra. https://github.com/jettraframework/jettrahub
+ que se pueden reutilizar y adaptar a sus necesidades particulares.
+
+
+
 ## Introducción y Conceptos Clave
 El sistema de plugins permite reutilizar funcionalidades sin reescribir componentes, ahorrando tiempo de desarrollo y pruebas. A partir de un proyecto Java Maven, se genera una estructura simplificada (.jar) que contiene clases y archivos de propiedades necesarios para integrarse como una dependencia en proyectos superiores.
 JettraHub
