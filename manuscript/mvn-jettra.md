@@ -145,9 +145,14 @@ Utiliza parámetros exclude-plugin para excluir plugins añadidos que no seran p
 Construye el plugin directamente en el directorio de trabajo actual si omitas -path:
 
 ```shell
+./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-package com.avbravo.general, com.avbravo.prueba  incluye-test yes
+```
 
-./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-package com.avbravo.general, com.avbravo.prueba exclude-class Clase1.java, Clase2.java incluye-test yes
+### exclude-class
 
+Permite indicar las clases que serán excluidas
+```shell
+./mvn-jettra generate-plugin -path /home/myuser/Descargas -name MiPlugin exclude-class Clase1.java, Clase2.java
 ```
 
 
