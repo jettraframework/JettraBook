@@ -234,17 +234,29 @@ El uso de sinónimos de nombres de roles  se explica más adelante.
 ---
 # generate-plugin @Page(path)
 Para evitar conflictos con otros plugins y páginas se modifica el path de los componentes asociados a @Page de la siguiente manera:
-```shell
-@Page(path =”<nombre-plugin>/rutapagina)
+```java
+@Page(path =”<nombre-plugin>/rutapagina”)
 ```
 por ejemplo
-```shell
+```java
 @Page(path = "/person")
 public class PersonPage extends TemplatePage { }
 ```
 Quedaria
-```shell
+
+```java
 @Page(path = "/myplugin/person")
 public class PersonPage extends TemplatePage { }
 ```
+
+En el archivo plugin-descriptor.md se modifica tambien el path de las paginas de 
+```java
+ JettraServer.resolvePath("/dashboard"))
+```
+a
+```java
+JettraServer.resolvePath("/myplugin/dashboard")) 
+```
+
+
 
