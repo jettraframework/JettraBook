@@ -359,3 +359,128 @@ Busca la declaración  correspondiente en el pom.xml local y la remueve automát
 * Ejecuta Limpieza de Código
 Elimina los bloques delimitados entre Start Plugin y End Plugin en TemplatePage.java y actualiza la barra lateral..
 
+
+
+---
+# DEMO
+
+## Objetivos
+
+* A partir de un proyecto JettraFluxExample crearemos un plugin llamado MiPlugin mediante generate-plugin.
+
+* En el proyecto JettraFluxPluginCenter ,añadir el plugin como dependencia de maven.
+
+* Instalar el plugin install-plugin.
+
+JettraFluxExample --> (Generar el plugin) --> MiPlugin 
+
+JettraFluxPluginCenter (Proyecto Jettra donde se integrará el plugin MiPlugin)
+
+JettraFluxBackend(Proyecto Backend)
+
+
+## Crear el plugin
+
+Clonar proyectos
+
+```shell
+git clone https://github.com/avbravo/JettraFluxExample.git
+git clone https://github.com/avbravo/JettraFluxBackend.git
+git clone https://github.com/avbravo/JettraFluxPluginCenter.git
+
+```
+
+Ingresar al proyecto JettraFluxExample
+
+```shell
+cd JettraFluxExample
+```
+
+Crear el plugin mediante
+
+```shell
+./mvn-jettra generate-plugin -path /home/avbravo/Descargas -name MiNuevoPlugin  
+
+```
+
+Se genera el mensaje en la consola:
+
+```shell
+Includes test: no
+Migrating classes from current project...
+Migrating resources from current project...
+Plugin MiNuevoPlugin generated successfully!
+```
+
+Ejecutar build sobre el plugin
+
+Ingrese al directorio del plugin
+
+```shell
+cd  MiNuevoPlugin
+```
+
+Construir el jar mediante
+
+```shell
+mvn clean verify
+```
+
+Se genera en el directorio target 
+**/MiNuevoPlugin/target/MiNuevoPlugin-1.0-SNAPSHOT.jar**
+
+
+## Verificar roles
+
+Trabajaremos con el proyecto JettraFluxPluginCenter 
+
+Abra el proyecto
+
+cd JettraFluxPluginCenter
+
+La configuración de la aplicación se establece en el archivo **jettra-config.properties**
+
+![](resources/mvn-jettra/roles-jettra-config.png)
+
+En jettra-config.properties los roles se definen en la propiedad **app.roles=ROL1,ROL2**
+
+![](resources/mvn-jettra/roles-jettra-config-app.png)
+
+
+---
+# JCF
+Jettra ofrece jcf para manejar roles
+
+```java
+@PageWidgetAllow(role={jcf.AppRole.ADMINISTRADOR, jcf.AppRole.GERENTE})
+@io.jettra.core.server.Page(path = "/dashboard")
+public class DashboardPage extends TemplatePage {}
+```
+
+## Ejecutar el proyecto al que se le añadirá el plugin
+
+
+Construir el jar mediante
+
+```shell
+mvn clean verify
+```
+
+
+Se genera en el directorio target, ejecute la aplicación
+
+```shell
+java -jar target/JettraFluxPluginCenter-1.0-SNAPSHOT.jar
+```
+
+En la consola nos indica el puerto y al contextpath
+```shell
+JettraServer HTTP server started on port 9010
+JettraServer HTTP server contextpath = /jettrafluxexample
+```
+
+quede en la Pagina 50
+
+
+
+
