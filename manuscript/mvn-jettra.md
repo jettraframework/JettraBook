@@ -240,7 +240,11 @@ por
 
 
 ### Archivo plugin-descriptor.md
-Contiene información sobre el plugin generado :
+
+Contiene información sobre el plugin generado 
+
+![](resources/mvn-jettra/plugin-descriptor-md.png)
+
 Secciones del archivo plugin-descriptor.md
 ```shell
 # Plugin Descriptor for MiPlugin
@@ -250,6 +254,9 @@ Secciones del archivo plugin-descriptor.md
              ## ActionWidgetAllow
              ## SecurityRole
 ```
+
+![](resources/mvn-jettra/plugin-descriptor-pagewidgetall.png)
+
 
 
 * Restrictions & Menus información de los menús para usarse con TemplatePage.java
@@ -317,6 +324,10 @@ Como por ejemplo
 # plugin-config.md
 Contiene información sobre el plugin generado.
 Se genera a partir del archivo plugin-descriptor.md del plugin  y permite especificar los sinónimos para los roles que usa la aplicación y estos serán usados en el plugin sin necesidad de modificar el plugin.
+
+![](resources/mvn-jettra/plugin-config-json.png)
+
+
 Contenido del archivo
  
 id: representa el nombre del plugin
@@ -324,7 +335,27 @@ roles: Es un array con los roles del plugin y los del aplicativo actual.
 
 En el ejemplo la aplicación usa los roles ADMINISTRADOR ,GERENTE y USER.
 
-Especifique los roles sinónimos entre el plugin y la aplicación actual.
+Especifique los **roles sinónimos** entre el plugin y la aplicación actual.
+
+![](resources/mvn-jettra/plugin-config-json-sinonimos.png)
 
 
-![](figura_01_03.png)
+
+
+
+---
+# remove-plugin
+
+Remueve un plugin
+
+```shell
+./mvn-jettra remove-plugin nombre-plugin 
+
+```
+
+* Ejecuta limpieza del archivo pom.xml
+Busca la declaración  correspondiente en el pom.xml local y la remueve automáticamente.
+
+* Ejecuta Limpieza de Código
+Elimina los bloques delimitados entre Start Plugin y End Plugin en TemplatePage.java y actualiza la barra lateral..
+
