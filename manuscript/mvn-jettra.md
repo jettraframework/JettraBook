@@ -610,7 +610,54 @@ Ahora puede observar que el menú contiene los componentes especificados en el p
 
 Formulario de ejemplo
 
-![](resources/mvn-jettra/dashboard_2.png)
+![](resources/mvn-jettra/dashboard-2.png)
+
+---
+
+# JettraHub
+
+## Repositorio central de plugin
+
+El repositorio JettraHub, es un directorio de plugins aprobados para Jettra. [https://github.com/jettraframework/jettrahub.git](https://github.com/jettraframework/jettrahub.git)
+
+Requerimientos para ser un plugin válido:
+
+* Debe ser un proyecto Java creado con JettraFramework
+
+* Debe ser generado con 
+
+```shell
+./mvn-jettra generate-plugin
+```
+
+* Debe estar alojado en un repositorio de acceso público como github, gitlab.
+
+* Debe ser  empaquetado y publicado en Maven Central/Jitpack u otro.
+
+* Especificar el autor o autores responsables.
+
+* El plugin no debe contener código malicioso o un comportamiento que afecte a los usuarios finales.
+
+* El plugin debe ser open-source, con alguna licencia open source que garantice su libre uso y modificación.
+
+* Si desea personalizar un plugin, solo debe clonarse, realizar las modificaciones genera el .jar, añadirlo al proyecto requerido y ejecutar **install-plugin**.
+
+* Envie un correo a avbravo@gmail.com  para añadirlo a lista de plugins verificados.
+
+
+El administrador de JettraHub actualiza el archivo README.md
+
+Con los siguientes datos en la tabla
+
+
+| #       | Plugin | Descripción | URL   | Autor |
+|:----    |  :---- | :----       | :---- | :---- |
 
 
 
+![](resources/mvn-jettra/jettra-hub-email.png)
+
+
+El administrador de JettraHub crea el archivo **<nombre-plugin>.json** con los siguientes datos describiendo el plugin y el repository y dependencia, ademas del url.
+
+![](resources/mvn-jettra/jettra-hub-complete.png)
