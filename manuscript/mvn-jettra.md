@@ -479,7 +479,34 @@ JettraServer HTTP server started on port 9010
 JettraServer HTTP server contextpath = /jettrafluxexample
 ```
 
-quede en la Pagina 50
+
+---
+# Controlar el acceso
+LoginPage.java, gestiona el acceso de usuarios e inserta en la sesión el rol del usuario logueado.
+
+![](resources/mvn-jettra/loginpage.png)
+
+Segmento de código para validar credenciales
+
+```java
+if (isValidUser(user, pass)) {
+    CredentialFlux credentialFlux = new CredentialFlux(user, user + "Prueba", "ADMINISTRADOR", "", "");
+    JettraContext.getCurrent().set(JettraContext.Scope.SESSION, "credentialFlux", credentialFlux);
+    setSessionCookie(exchange, user, credentialFlux.role(), credentialFlux.department());
+    redirect(exchange, "/dashboard");
+    return true;
+} else {
+    redirect(exchange, "/login?error=invalid_credentials");
+    return true;
+}
+
+
+```
+
+
+
+
+
 
 
 
