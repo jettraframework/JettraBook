@@ -506,8 +506,91 @@ if (isValidUser(user, pass)) {
 
 
 
+# Ver la aplicación en el navegador Web
+
+Ingrese al directorio del plugin [http://localhost:9010/jettrafluxplugincenter/](http://localhost:9010/jettrafluxplugincenter/)
+
+Ingrese las credenciales:
+
+username: **admin**
+
+password: **admin**
+
+Presione el boton **Sing In**
+
+
+![](resources/mvn-jettra/login.png)
+
+
+se muestra el dashboard
+
+![](resources/mvn-jettra/dashboard.png)
 
 
 
+---
+# Instalar el plugin
+
+Abra el proyecto JettraFluxPluginCenter, abra el archivo pom.xml y añade la dependencia
+
+```java
+<dependency>
+    <groupId>io.jettraflux.minuevoplugin</groupId>
+    <artifactId>MiNuevoPlugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+
+
+```
+
+Instale el plugin mediante
+
+```shell
+./mvn-jettra install-plugin MiNuevoPlugin
+```
+
+Revise el archivo TemplatePage.java se ha configurado las opciones del menú del plugin.
+
+![](resources/mvn-jettra/template.png)
+
+
+---
+# Configurar plugin-config.json
+
+Al ejecutar install-plugin se genera el archivo **plugin-config.json**, con información de los roles utilizados en el plugin.
+
+![](resources/mvn-jettra/plugin-config-1.png)
+
+Revise el archivo jettra-config.properties e identifique los roles que utiliza en su aplicación.
+**app.roles=ADMINISTRADOR,GERENTE,ANONIMO**
+
+
+![](resources/mvn-jettra/plugin-config-2.png)
+
+Edite plugin-config.json e inserte el nombre de rol asociado del proyecto actual, es decir en el proyecto cliente se denomina ADMINISTRADOR y en el plugin su referencia se denomina ADMIN. 
+Configurarlo dentro del archivo,
+
+
+## Ejecutar el proyecto
+
+Ingrese al directorio del  proyecto cd JettraFluxPluginCenter. Verifique la configuración de la aplicación en el archivo jettra-config.properties
+Construir el jar mediante:
+
+```shell
+ mvn clean verify
+```
+
+Se genera en el directorio target con el archivo **.jar** y  ejecute la aplicación con
+
+```shell
+java -jar target/JettraFluxPluginCenter-1.0-SNAPSHOT.jar
+```
+
+En la consola nos indica el puerto y al contextpath
+
+```shell
+JettraServer HTTP server started on port 9010
+JettraServer HTTP server contextpath = /jettrafluxexample
+```
 
 
