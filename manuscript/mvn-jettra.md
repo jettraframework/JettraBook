@@ -593,4 +593,24 @@ JettraServer HTTP server started on port 9010
 JettraServer HTTP server contextpath = /jettrafluxexample
 ```
 
+---
+
+# Ver la aplicación en el navegador Web con el plugin
+
+Ingrese al login e indique  las credenciales 
+
+```shell
+username: admin
+password: admin
+```
+
+Ahora puede observar que el menú contiene los componentes especificados en el plugin.
+
+![](resources/mvn-jettra/dashboard_1.png)
+
+Formulario de ejemplo
+
+![](resources/mvn-jettra/dashboard_2.png)
+
+
 
