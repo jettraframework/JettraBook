@@ -1,3 +1,157 @@
-# mvn-flux
+# mvn-flux CLI
+
+`mvn-flux` es una herramienta de línea de comandos integrada en el ecosistema Jettra que facilita la generación de código y utilidades específicas para el framework **JettraFlux**. 
+
+Mientras que `mvn-jettra` se enfoca en la administración y gestión del ciclo de vida de los plugins, `mvn-flux` está diseñado para agilizar el desarrollo de aplicaciones web escribiendo código repetitivo por ti.
+
+Este script es autogenerado por JettraAppServer en la raíz de tu proyecto cuando inicias el servidor por primera vez, al igual que `mvn-jettra`.
 
 
+## **Comandos Disponibles**
+
+```shell
+./mvn-flux <comando> [parámetros/opciones]
+```
+
+| Comando | Descripción |        |       |
+| :----   |       :---- |  :---- | :---- |
+| help                   | Muestra la ayuda de los comandos disponibles.                         |  |
+| -create-code           | Genera código fuente automáticamente a partir de entidades (records). |  |
+| -initialize-front-end  |   Inicializa la estructura frontend completa del proyecto pom.xml, jettra-config.properties, App.java y paquetes.                                                                    |  |
+
+
+
+ ## -create-code 
+    Genera código fuente automáticamente a partir de entidades (records).
+* -source-record <FQN>:            Especifica la ruta completa (Fully Qualified Name) de un record.
+                                  (Ejemplo: com.example.entity.Person)
+                                  Alias: -from-record, source-record, from-record
+
+*  -source-package-record <Pkg>:    Especifica el paquete para procesar masivamente todos sus records.
+                                  (Ejemplo: com.example.entity)
+                                  Alias: -from-package-record, source-package-record, from-package-record
+
+* -model                          [Requerido] Genera la clase ViewModel (<Nombre>Model.java).
+* -properties                     Escanea y actualiza los archivos messages*.properties con las etiquetas.
+*  -converter                      Genera la clase conversora (<Nombre>ModelConverter.java).
+*  -rest                           Genera la interfaz cliente REST (<Nombre>RestClient.java).
+*  -services                       Genera la clase de servicio (<Nombre>Service.java).
+*  -page                           Genera la página básica (<Nombre>Page.java).
+*  -page-crud                      Genera la página CRUD completa (<Nombre>CrudPage.java).
+*  -test-rest                      Genera las pruebas para los clientes REST.
+*  -test-service                   Genera las pruebas para los servicios.
+*  -test-page                      Genera las pruebas para las páginas.
+*  -repository                     Genera el repositorio (Interface e Impl) para un record.
+*  -controller                     Genera el controlador REST para un record.
+
+
+
+
+## Comando: `-initialize-front-end`
+
+El comando `-initialize-front-end` permite inicializar automáticamente la estructura frontend de un proyecto nuevo generado con Maven Archetype (por ejemplo, `maven-archetype-quickstart`).
+
+### Flujo de Uso
+
+1. Crear un proyecto nuevo con Maven:
+```bash
+mvn archetype:generate \
+    -DgroupId=com.example.web \
+    -DartifactId=MiExample \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DinteractiveMode=false
+```
+
+2. Añadir la dependencia de `JettraAppServer` en el `pom.xml`.
+
+3. Ejecutar el comando de inicialización:
+```bash
+./mvn-flux -initialize-front-end
+```
+
+### ¿Qué realiza este comando?
+
+- **Configuración de `pom.xml`**: Actualiza el archivo `pom.xml` configurando las propiedades Java 25, dependencias de Jettra (`JettraAppServer`, `JettraFlux`, `JettraJSON`, `JettraRules`, `JettraJWT`, `JettraRest`, `JettraAnnotation`, `JettraTest`), plugins de compilación/shade y el repositorio `jitpack.io`.
+- **Generación de propiedades**: Crea en `src/main/resources/` los archivos:
+  - `jettra-config.properties` tomando la información de `<groupId>`, `<artifactId>`, `<version>`, `<name>` del `pom.xml`.
+  - `messages.properties`, `messages_es.properties` y `messages_en.properties`.
+- **Clase Principal (`App.java`)**: Crea en el paquete principal la clase `App.java` con toda la configuración del servidor web empotrado, OpenAPI y enrutamiento.
+- **Estructura de Paquetes y Clases Autogeneradas**:
+  - `login/`: Genera `LoginPage.java` y `ForgotPasswordPage.java`.
+  - `template/`: Genera `TemplatePage.java`.
+  - `dashboard/`: Genera `DashboardPage.java`.
+  - `entity/`: Genera `Person.java`.
+  - `model/`: Genera `PersonModel.java`.
+  - `page/`: Genera `PersonPage.java`.
+
+## Comando: `-create-code`
+
+El comando principal de `mvn-flux` es `-create-code`, que te permite generar clases `ViewModel` complejas de forma completamente automática a partir de tus entidades (`records`).
+
+### Sintaxis
+
+**Por un Record específico:**
+```bash
+./mvn-flux -create-code -source-record <Paquete.Record> -model [-properties] [-converter] [-rest] [-services] [-page] [-page-crud] [-test-rest] [-test-service] [-test-page]
+```
+
+**Por todo un paquete de Records:**
+```bash
+./mvn-flux -create-code -source-package-record <Paquete> -model [-properties] [-converter] [-rest] [-services] [-page] [-page-crud] [-test-rest] [-test-service] [-test-page]
+```
+
+### Opciones de Origen (`-source-record` / `-source-package-record`)
+
+- **`-source-record <Paquete.Record>`** (o `-from-record`): Recibe la ruta absoluta (Fully Qualified Name) de una clase `record` específica.
+- **`-source-package-record <Paquete>`** (o `-from-package-record`): Recibe el paquete de trabajo (ej. `com.example.entity`). Escanea y toma todos los `records` presentes en ese paquete para aplicar masivamente la generación según los parámetros indicados.
+
+### Ejemplo de Uso
+
+**1. Generación por un Record individual:**
+Supongamos que tienes una entidad (record) `Person` en el paquete `com.miempresa.proyecto.entity`:
+
+```bash
+./mvn-flux -create-code -source-record com.miempresa.proyecto.entity.Person -model -properties -converter -rest -services -page-crud -test-rest -test-service -test-page
+```
+
+**2. Generación masiva por Paquete de Records:**
+Para procesar automáticamente todos los `records` dentro del paquete `com.miempresa.proyecto.entity`:
+
+```bash
+./mvn-flux -create-code -source-package-record com.miempresa.proyecto.entity -model -properties -converter -rest -services -page-crud -test-rest -test-service -test-page
+```
+
+Esto analizará las entidades del paquete e implementará sus correspondientes `ViewModel` (e.g. `PersonModel.java`) en el paquete `com.miempresa.proyecto.model`. Además, si se incluye `-properties`, escaneará todos los archivos `messages*.properties` (multilenguaje) en la carpeta `src/main/resources/` y añadirá automáticamente las etiquetas correspondientes a los atributos de cada récord.
+
+Por ejemplo, si `Person` tiene un `UUID id` y un `String name`, se añadirá automáticamente a tus archivos properties:
+```properties
+person.id = Id
+person.name = Name
+```
+
+### ¿Qué hace internamente?
+
+1. **Inferencia de Paquetes**: Asume de manera inteligente que si tu récord está en un subpaquete `.entity`, el ViewModel debe residir en `.model`. De igual manera, asume que los servicios residen en `.services`, clientes REST en `.restclient`, páginas en `.pages`.
+2. **Generación de Selectores Visuales**: 
+   - Transforma atributos básicos (como `String`, `Integer`) en campos simples con sus respectivas anotaciones `@PropertiesInRecord`, `@PropertiesLabel` y validaciones (`@NotNull`).
+   - Identifica atributos complejos (relaciones con otras clases) y genera selectores de vista única (`@ViewSelectOne`).
+   - Identifica colecciones (ej. `List<Department>`) y genera selectores de vista múltiple (`@ViewSelectMany`) referenciando directamente a los servicios.
+3. **Conversor Bidireccional (Opcional)**: Si añades el flag `-converter`, el CLI generará explícitamente la clase `PersonModelConverter.java` en el paquete `.converter`. Esto es útil para evitar errores de IDE al inyectar esta clase en otras. Si no pasas este flag, podrás usar anotaciones (como `@FluxModelToRecordConversor`) o crearlo manualmente si prefieres el modo clásico.
+4. **Cliente REST (Opcional)**: Si añades el flag `-rest`, generará automáticamente una interfaz `@RestClient` (`PersonRestClient.java`) en el paquete `.restclient` para conectarse a tus APIs, con métodos de CRUD básicos (`findAll`, `save`, `update`, `delete`) y consultas dinámicas `findBy<NombreAtributo>` por cada campo del record.
+5. **Servicio Lógico (Opcional)**: Si añades el flag `-services`, generará una clase de servicio (`PersonService.java`) en el paquete `.services` configurada con `@Inject` inyectando tu `PersonRestClient` lista para ser utilizada.
+6. **Vistas / Páginas (Opcional)**: Si añades el flag `-page`, generará una página en blanco adaptada al record. Si en cambio añades el flag `-page-crud`, se construirá un CRUD visual completo (`PersonCrudPage.java`) con DataTable, paginación, modales, etc.
+7. **Pruebas Unitarias/Integración (Opcional)**: Con los flags `-test-rest`, `-test-service`, y `-test-page`, se generarán las estructuras de prueba en `src/test/java` para las correspondientes capas de tu aplicación.
+
+## Comando: `-help`
+
+Para consultar el menú de ayuda con la explicación detallada de todos los comandos, parámetros y ejemplos desde la consola, ejecuta:
+
+```bash
+./mvn-flux -help
+```
+
+*(También puedes utilizar `help`, `--help` o `-h`).*
+
+---
+
+*Nota: Para que la generación de código funcione correctamente, asegúrate de invocar `mvn-flux` en la raíz del proyecto que contiene los archivos fuente de tu entidad, ya que el CLI utiliza el classpath y las rutas locales del proyecto para ubicar y escribir los archivos de Java.*
