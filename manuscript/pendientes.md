@@ -55,11 +55,7 @@ Para más detalles sobre la estructura del descriptor de temas, consulta [create
 
 
 EJEMPLOS DE USO:
-  1. Por un Record individual:
-     ./mvn-flux -create-code -source-record com.example.entity.Person -model -properties -converter -rest -services
 
-  2. Por un paquete completo de Records:
-     ./mvn-flux -create-code -source-package-record com.example.entity -model -properties -converter -rest -services
-
-  3. Generar un plugin de tema:
+```bash
      ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
+```bash
