@@ -1,6 +1,6 @@
 
 
-# Modificar el archivo mvn-flux.md 
+# Modificar el archivo mvn-flux.md
 
 y la sección que genera los archivos mvn-flux y mvn-jettra reemplazarlos por 
 
