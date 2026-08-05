@@ -155,3 +155,184 @@ Para consultar el menú de ayuda con la explicación detallada de todos los coma
 ---
 
 *Nota: Para que la generación de código funcione correctamente, asegúrate de invocar `mvn-flux` en la raíz del proyecto que contiene los archivos fuente de tu entidad, ya que el CLI utiliza el classpath y las rutas locales del proyecto para ubicar y escribir los archivos de Java.*
+
+
+---
+# -initialize-front-end
+
+## **Introducción**
+
+Genera el esqueleto funcional de un proyecto Jettra-Flux, con las configuraciones mínimas.
+
+## Creación del proyecto llamado: 
+
+Este capítulo trata de la creación de un proyecto Java utilizando el stack Jettra, configurando base de datos y endpoints, utilizando OpenAPI mediante una implementación propia de Swagger-ui.
+
+A continuación los pasos a seguir:
+
+* Desde consola creamos el proyecto Java Maven mediante el comando
+
+```java
+mvn archetype:generate \
+    -DgroupId=com.avbravo.jcofa \
+    -DartifactId=JCOFA \
+    -DarchetypeArtifactId=maven-archetype-quickstart \
+    -DinteractiveMode=false
+
+```
+
+Al finalizar el proceso se crea el proyecto JCOFA Utilice su editor preferido para abrir el proyecto
+
+Edite la clase AppTest.java, elimine el código de manera que quede de la siguiente manera:
+
+```java
+package com.avbravo.facoweb;
+/**
+ * Unit test for simple App.
+ */
+public class AppTest {
+ 
+}
+
+```
+
+Edite el archivo pom.xml y elimine la dependencia de JUnit.
+
+![](resources/mvn-flux/junit.png)
+
+
+Añada las propiedades
+
+```xml
+<properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+        <!-- Main Class -->
+        <main.class.path>com.avbravo.jcofa.App</main.class.path>
+        <!-- Versions-->
+        <jettra.appserver.version>1.0.0-SNAPSHOT</jettra.appserver.version>
+    
+    </properties>
+
+```
+
+Añada el repository
+
+```xml
+<repositories>
+   <repository>
+	  <id>jitpack.io</id>
+	  <url>https://jitpack.io</url>
+   </repository>
+</repositories>
+```
+
+
+Añada la dependencia
+
+```xml
+<dependencies>
+    <dependency>
+       <groupId>io.jettra</groupId>
+       <artifactId>JettraAppServer</artifactId>
+       <version>${jettra.appserver.version}</version>
+    </dependency>
+</dependencies>
+```
+
+
+Resultado final archivo pom.xml
+
+```xml
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.avbravo.jcofa</groupId>
+    <artifactId>JCOFA</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>JCOFA</name>
+    <url>http://maven.apache.org</url>
+    <properties>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+        <!-- Main Class -->
+        <main.class.path>com.avbravo.facoweb.App</main.class.path>
+        <!-- Versions-->
+        <jettra.appserver.version>1.0.0-SNAPSHOT</jettra.appserver.version>
+    
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.jettra</groupId>
+            <artifactId>JettraAppServer</artifactId>
+            <version>${jettra.appserver.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
+</project>
+```
+
+Compile el proyecto mediante
+
+```shell
+mvn clean verify
+```
+
+
+Cree los archivos [mvn-flux](http://mvn-flux.sh) , y añada el contenido siguiente
+
+Archivo: mvn-flux
+
+```shell
+#!/bin/bash
+if [ "$1" = "-flux" ]; then
+    shift
+fi
+
+# Execute the CLI tool using the local pom.xml
+mvn -q exec:java -Dexec.mainClass="io.jettra.flux.cli.FluxCLI" -Dexec.args="$*"
+```
+
+Archivo: mvn-jettra
+
+```shell
+#!/bin/bash
+if [ "$1" = "-jettra" ]; then
+    shift
+fi
+
+# Execute the CLI tool using the local pom.xml
+mvn -q exec:java -Dexec.mainClass="io.jettra.server.cli.PluginCLI" -Dexec.args="$*"
+
+```
+
+De permisos a los archivos
+
+```shell
+chmod 775  mvn-flux
+chmod 755  mvn-jettra
+```
+
+Ejecute el inicializador para una aplicación front-end mediante
+
+```shell
+ ./mvn-flux  -initialize-front-end   
+
+```
+
+
