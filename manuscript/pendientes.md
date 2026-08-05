@@ -62,4 +62,4 @@ EJEMPLOS DE USO:
      ./mvn-flux -create-code -source-package-record com.example.entity -model -properties -converter -rest -services
 
   3. Generar un plugin de tema:
-     ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://primeui.store/templates/angular/freya
+     ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
