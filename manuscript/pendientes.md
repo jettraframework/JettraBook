@@ -43,14 +43,8 @@ Luego, solo tendrás que entrar a la carpeta, modificar el `theme.json` para def
 cd SkyRed
 mvn clean install
 ```
-
-Para más detalles sobre la estructura del descriptor de temas, consulta [createplugin.md](createplugin.md).
-
-
-# Remover la imagen de mvn-help y solo colocar las salidas que se generna añadiendo
-
-  -generate-theme-project <nombre> -path <ruta> [-url-source <url>] Genera un proyecto Maven independiente para un plugin de tema.
-  -help                  Muestra este menú de ayuda explicativo en la consola.
+Ingrese al proyecto y añáda la dependencia.
+De manera automática se añade al selector de temas del proyecto.
 
 
 
@@ -58,4 +52,12 @@ EJEMPLOS DE USO:
 
 ```bash
      ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
+```
+
+```bash
+
+     ./mvn-flux -generate-theme-project AdminLTE -path ~/Descargas -url-source https://adminlte.io/themes/v4/
+```
+```bash
+./mvn-flux -generate-theme-project Metis -path ~/Descargas  https://preview.colorlib.com/theme/metis/
 ```
