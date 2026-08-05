@@ -61,3 +61,5 @@ EJEMPLOS DE USO:
 ```bash
 ./mvn-flux -generate-theme-project Metis -path ~/Descargas  https://preview.colorlib.com/theme/metis/
 ```
+
+Estos temas se pueden subir a un repositorio de temas y colocar los enlaces para descargas.
