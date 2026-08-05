@@ -58,4 +58,4 @@ EJEMPLOS DE USO:
 
 ```bash
      ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
-```bash
+```
