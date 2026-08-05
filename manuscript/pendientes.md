@@ -1,13 +1,12 @@
 
-Capitulo 2 modificar el final name y modificar el Dockerfile
 
-FROM payara/micro:6.2024.12-jdk21
-COPY target/${project.artifactId}.war $DEPLOY_DIR
-#COPY target/notaria-0.1-SNAPSHOT.war $DEPLOY_DIR
+# Modificar el archivo mvn-flux.md 
 
+y la sección que genera los archivos mvn-flux y mvn-jettra reemplazarlos por 
 
-Cambiar el capitulo 2 con  el uso de PayaraStarter
+```shell
 
-* revisar si funciona el bundle
+mvn exec:java -Dexec.mainClass="io.jettra.server.JettraServer" -Dexec.args="-generate-flux-jettra-sh"
 
-* :start
+```
+Esta instrucción genera de manera automática los archivos mvn-flux y mvn-jettra.
