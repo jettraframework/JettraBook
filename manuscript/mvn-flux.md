@@ -379,6 +379,10 @@ Para facilitar la creación de temas dinámicos que JettraFlux detectará autom�
 - `-css-source`: que es la ruta del archivo css si no se indica se asume que -url-source contiene el css dentro del.
 - `-js-source`: Indica la ruta del archivo js del tema. Si no se especifica indica que -url-source contiene las instrucciones del archivo javascript.
 
+Consideraciones:
+* La pagina html incorpora los css y js de la plantilla. El sistema lo procesa de manera optima
+* Si la pagina hmtl no incorpora css y js en el mismo archivo html, es recomendable usar -css-source y js-source para que el resultado sea optimizado.
+
 ### Ejemplo de Uso
 
 ```bash
