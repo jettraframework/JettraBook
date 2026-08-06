@@ -509,3 +509,11 @@ manera automatica admin-lte
 
 ![](resources/admin-lte.png)
 
+
+## Generando un tema usando Antigravity/Gemini IA
+
+Escribe este prompt
+
+
+Analiza el tema https://preview.colorlib.com/theme/metis/forms.html
+y crea un proyecto java maven estilo themes similar a AdminLte este proyecto llamalo Metropolis, y debes asegurarte que los componentes de JettraFlux cuando se seleccione este tema tomen las caracteristicas
