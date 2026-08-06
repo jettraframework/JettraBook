@@ -405,16 +405,23 @@ De manera automática se añade al selector de temas del proyecto.
 EJEMPLOS DE USO:
 
 ```bash
-     ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
+./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
 ```
 
 ```bash
-
-     ./mvn-flux -generate-theme-project AdminLTE -path ~/Descargas -url-source https://adminlte.io/themes/v4/
+./mvn-flux -generate-theme-project AdminLTE -path ~/Descargas -url-source https://adminlte.io/themes/v4/
 ```
+
 ```bash
 ./mvn-flux -generate-theme-project Metis -path ~/Descargas  https://preview.colorlib.com/theme/metis/
 ```
+
+```bash
+./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -css-source ./styles.css -js-source ./app.js
+```
+
+
+
 
 Estos temas se pueden subir a un repositorio de temas y colocar los enlaces para descargas.
 
