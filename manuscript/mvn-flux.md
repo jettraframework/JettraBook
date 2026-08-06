@@ -361,12 +361,6 @@ del proyecto, se  crea la plantilla. el login y un formulario de ejemplo.
 
 ---
 
-# Modificar el archivo mvn-flux.md
-
-y la sección que genera los archivos mvn-flux y mvn-jettra reemplazarlos por 
-
-
-
 ## `-generate-theme-project`
 
 Para facilitar la creación de temas dinámicos que JettraFlux detectará automáticamente a través de la arquitectura de plugins (`theme.json`), puedes utilizar el comando `-generate-theme-project`.
