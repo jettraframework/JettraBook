@@ -183,6 +183,9 @@ mvn archetype:generate \
 
 Al finalizar el proceso se crea el proyecto JCOFA Utilice su editor preferido para abrir el proyecto
 
+![](resources/mvn-flux/proyecto.png)
+
+
 Edite la clase AppTest.java, elimine el código de manera que quede de la siguiente manera:
 
 ```java
@@ -290,11 +293,13 @@ Resultado final archivo pom.xml
 Compile el proyecto mediante
 
 ```shell
+cd JCOFA
+
 mvn clean verify
 ```
 
 
-Cree los archivos [mvn-flux](http://mvn-flux.sh) , y añada el contenido siguiente
+Cree los archivos **mvn-flux** , y añada el contenido siguiente
 
 Archivo: mvn-flux
 
@@ -305,7 +310,8 @@ if [ "$1" = "-flux" ]; then
 fi
 
 # Execute the CLI tool using the local pom.xml
-mvn -q exec:java -Dexec.mainClass="io.jettra.flux.cli.FluxCLI" -Dexec.args="$*"
+mvn -q exec:java -Dexec.mainClass="io.jettra.server.cli.FluxCLI" -Dexec.args="$*"
+
 ```
 
 Archivo: mvn-jettra
@@ -335,4 +341,12 @@ Ejecute el inicializador para una aplicación front-end mediante
 
 ```
 
+Se muestra la salida en consola de la generación del esqueleto del proyecto.
 
+![](resources/mvn-flux/initialize.png)
+
+
+Al finalizar la ejecución de -initialize-front-end , se observa que se crearon las clases, los archivos de propiedades, las configuraciones
+del proyecto, se  crea la plantilla. el login y un formulario de ejemplo.
+
+![](resources/mvn-flux/generado.png)
