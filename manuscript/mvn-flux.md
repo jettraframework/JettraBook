@@ -507,7 +507,7 @@ password: admin
 Se muestra el dashboard, seleccione en la parte superior la opción de temas, y se muestra el listado existente y se añade de
 manera automatica admin-lte
 
-![](resources/admin-lte.png)
+![](resources/mvn-flux/admin-lte.png)
 
 
 ## Generando un tema usando Antigravity/Gemini IA
@@ -517,3 +517,49 @@ Escribe este prompt
 
 Analiza el tema https://preview.colorlib.com/theme/metis/forms.html
 y crea un proyecto java maven estilo themes similar a AdminLte este proyecto llamalo Metropolis, y debes asegurarte que los componentes de JettraFlux cuando se seleccione este tema tomen las caracteristicas
+
+
+---
+
+# Distribuyendo Temas
+
+* [https://github.com/jettraframework/Metropolis.git](https://github.com/jettraframework/Metropolis.git)
+
+Genere la version distribuible
+
+```bash
+mvn clean verify
+
+```
+Cree en el repositorio de GitHub un release
+
+![](resources/mvn-flux/release.png)
+
+
+Genere un nuevo distribuible en [https://jitpack.io/](https://jitpack.io/)
+
+
+![](resources/mvn-flux/jitpack-1.png)
+
+Observe que genera el repositorio y la dependencia lista para instalarse
+
+
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.jettraframework</groupId>
+    <artifactId>Metropolis</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Añadalo a su proyecto Jettra y tendra el plugin configurado y listo para funcionar.
+
