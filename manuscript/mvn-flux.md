@@ -421,7 +421,91 @@ EJEMPLOS DE USO:
 ```
 
 
-
-
 Estos temas se pueden subir a un repositorio de temas y colocar los enlaces para descargas.
+
+
+## Creando el tema AdminLTE
+
+Ejecute
+
+```bash
+./mvn-flux -generate-theme-project AdminLTE -path ~/Descargas -url-source https://adminlte.io/themes/v4/
+```
+
+
+Se muestra en consola el proceso realizado
+
+![](resources/mvn-flux/generate-theme.png)
+
+
+Abra el proyecto en su IDE favorito
+
+![](resources/mvn-flux/proyecto-tema.png)
+
+
+Cree el archivo jar del tema
+
+```bash
+
+mvn clean verify
+
+```
+
+Ahora vamos a probar el plugin abra un proyecto para integrarlo, en este caso usaremos JettraFluxExample, puede clonarlo mediante
+
+```bash
+git clone https://github.com/jettraframework/JettraFluxExample.git
+```
+
+Compile y ejecute el proyecto
+
+```bash
+mvn clean verify
+
+java -jar target/JettraFluxExample-1.0-SNAPSHOT.jar 
+
+```
+
+Ingrese al navegador en la dirección [http://localhost:9010/jettrafluxexample/](http://localhost:9010/jettrafluxexample/).
+
+Utilice las credenciales siguientes:
+
+username: admin
+password: admin
+
+Se muestra el dashboard, seleccione en la parte superior la opción de temas, y se muestra el listado existente.
+
+
+![](resources/mvn-flux/jettra-flux-example.png)
+
+
+Edite el archivo pom.xml del proyecto JettraFluxExample y añada la dependencia que acaba de crear.
+
+```xml
+<dependency>
+    <groupId>io.jettra.theme</groupId>
+    <artifactId>adminlte</artifactId>
+    <version>1.0.0</version>
+    </dependency>
+
+```
+
+```bash
+mvn clean verify
+
+java -jar target/JettraFluxExample-1.0-SNAPSHOT.jar 
+
+```
+
+Ingrese al navegador en la dirección [http://localhost:9010/jettrafluxexample/](http://localhost:9010/jettrafluxexample/).
+
+Utilice las credenciales siguientes:
+
+username: admin
+password: admin
+
+Se muestra el dashboard, seleccione en la parte superior la opción de temas, y se muestra el listado existente y se añade de
+manera automatica admin-lte
+
+![](resources/admin-lte.png)
 
