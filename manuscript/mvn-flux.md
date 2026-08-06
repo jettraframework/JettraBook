@@ -376,6 +376,8 @@ Para facilitar la creación de temas dinámicos que JettraFlux detectará autom�
 - `<nombre-proyecto-plugin>`: El nombre de tu nuevo proyecto (ej. `SkyRed`). Esto creará una carpeta con el mismo nombre en tu espacio de trabajo.
 - `-path`: Ruta donde se almacena el proyecto creado
 - `-url-source`: (Opcional) Una URL de referencia que sirvió de inspiración para el diseño (ej. `https://primeui.store/templates/angular/freya`).
+- `-css-source`: que es la ruta del archivo css si no se indica se asume que -url-source contiene el css dentro del.
+- `-js-source`: Indica la ruta del archivo js del tema. Si no se especifica indica que -url-source contiene las instrucciones del archivo javascript.
 
 ### Ejemplo de Uso
 
