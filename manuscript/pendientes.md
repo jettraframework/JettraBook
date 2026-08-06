@@ -1,13 +1,65 @@
 
-Capitulo 2 modificar el final name y modificar el Dockerfile
 
-FROM payara/micro:6.2024.12-jdk21
-COPY target/${project.artifactId}.war $DEPLOY_DIR
-#COPY target/notaria-0.1-SNAPSHOT.war $DEPLOY_DIR
+# Modificar el archivo mvn-flux.md
+
+y la sección que genera los archivos mvn-flux y mvn-jettra reemplazarlos por 
+
+```shell
+
+mvn exec:java -Dexec.mainClass="io.jettra.server.JettraServer" -Dexec.args="-generate-flux-jettra-sh"
+
+```
+Esta instrucción genera de manera automática los archivos mvn-flux y mvn-jettra.
 
 
-Cambiar el capitulo 2 con  el uso de PayaraStarter
 
-* revisar si funciona el bundle
+## Nuevo Comando: `-generate-theme-project`
 
-* :start
+Para facilitar la creación de temas dinámicos que JettraFlux detectará automáticamente a través de la arquitectura de plugins (`theme.json`), puedes utilizar el comando `-generate-theme-project`.
+
+### Sintaxis
+
+```bash
+./mvn-flux -generate-theme-project <nombre-proyecto-plugin> -path <path-donde-se-creara el proyecto>  -url-source <url-template-example>
+```
+
+### Parámetros
+
+- `<nombre-proyecto-plugin>`: El nombre de tu nuevo proyecto (ej. `SkyRed`). Esto creará una carpeta con el mismo nombre en tu espacio de trabajo.
+- `-path`: Ruta donde se almacena el proyecto creado
+- `-url-source`: (Opcional) Una URL de referencia que sirvió de inspiración para el diseño (ej. `https://primeui.store/templates/angular/freya`).
+
+### Ejemplo de Uso
+
+```bash
+./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://primeui.store/templates/angular/freya 
+```
+
+Al finalizar la ejecución, este comando creará un proyecto Maven independiente, empaquetado como `jar`, y con la carpeta `src/main/resources/META-INF/` conteniendo el archivo descriptor base **`theme.json`**. 
+
+Luego, solo tendrás que entrar a la carpeta, modificar el `theme.json` para definir tus estilos, y compilar:
+
+```bash
+cd SkyRed
+mvn clean install
+```
+Ingrese al proyecto y añáda la dependencia.
+De manera automática se añade al selector de temas del proyecto.
+
+
+
+EJEMPLOS DE USO:
+
+```bash
+     ./mvn-flux -generate-theme-project SkyRed -path ~/Descargas -url-source https://freya.primevue.org/
+```
+
+```bash
+
+     ./mvn-flux -generate-theme-project AdminLTE -path ~/Descargas -url-source https://adminlte.io/themes/v4/
+```
+```bash
+./mvn-flux -generate-theme-project Metis -path ~/Descargas  https://preview.colorlib.com/theme/metis/
+```
+
+Estos temas se pueden subir a un repositorio de temas y colocar los enlaces para descargas.
