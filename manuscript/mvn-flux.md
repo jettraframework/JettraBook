@@ -523,6 +523,8 @@ y crea un proyecto java maven estilo themes similar a AdminLte este proyecto lla
 
 # Distribuyendo Temas
 
+## Metroplis
+
 * [https://github.com/jettraframework/Metropolis.git](https://github.com/jettraframework/Metropolis.git)
 
 Genere la version distribuible
@@ -563,3 +565,6 @@ Observe que genera el repositorio y la dependencia lista para instalarse
 
 Añadalo a su proyecto Jettra y tendra el plugin configurado y listo para funcionar.
 
+
+## Bit
+[https://github.com/jettraframework/Bit.git](https://github.com/jettraframework/Bit.git)
