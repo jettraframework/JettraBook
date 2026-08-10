@@ -568,3 +568,21 @@ Añadalo a su proyecto Jettra y tendra el plugin configurado y listo para funcio
 
 ## Bit
 [https://github.com/jettraframework/Bit.git](https://github.com/jettraframework/Bit.git)
+
+Realice los mismos pasos descritos para Metropolis
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+
+```xml
+<dependency>
+    <groupId>com.github.jettraframework</groupId>
+    <artifactId>Bit</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
