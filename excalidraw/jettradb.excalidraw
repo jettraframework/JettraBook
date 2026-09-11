@@ -48,10 +48,10 @@
     {
       "id": "i_ALmQoUp5_fYfFS0NUYM",
       "type": "arrow",
-      "x": 991.4611649959653,
+      "x": 991.3343436529865,
       "y": -1560.1974826388887,
-      "width": 151.00924465124115,
-      "height": 155.1532118055552,
+      "width": 152.09835158949386,
+      "height": 155.15711805555543,
       "angle": 0,
       "strokeColor": "#e03131",
       "backgroundColor": "#b2f2bb",
@@ -67,11 +67,11 @@
         "type": 2
       },
       "seed": 594505989,
-      "version": 339,
-      "versionNonce": 1428601334,
+      "version": 340,
+      "versionNonce": 819271890,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1789056391826,
+      "updated": 1789142046728,
       "link": null,
       "locked": false,
       "points": [
@@ -80,8 +80,8 @@
           0
         ],
         [
-          -151.00924465124115,
-          155.1532118055552
+          -152.09835158949386,
+          155.15711805555543
         ]
       ],
       "lastCommittedPoint": null,
@@ -102,8 +102,8 @@
     {
       "id": "H33rWrzG35iGhwj7ZrUs0",
       "type": "text",
-      "x": 965.0411987304692,
-      "y": -1527.131076388889,
+      "x": 817.8068237304692,
+      "y": -1526.150607638889,
       "width": 531.6509840223521,
       "height": 103.88688307821648,
       "angle": 0,
@@ -119,11 +119,11 @@
       "index": "aN",
       "roundness": null,
       "seed": 1930034987,
-      "version": 534,
-      "versionNonce": 185315766,
+      "version": 555,
+      "versionNonce": 1577233042,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1789056395492,
+      "updated": 1789153759506,
       "link": null,
       "locked": false,
       "text": "En el proyecto JettraDB en la pagina /informations\nNo se debe mostrar los botones de la parte superior\n+ DB, +UNIT, BACKUP, RESTORE, EXPORT, \nBUSQUEDA AVANZADA, SAMPLE DBS",
@@ -139,8 +139,8 @@
     {
       "id": "XNTi6obmqYN0U243HezrV",
       "type": "image",
-      "x": 480.89029699766843,
-      "y": -1401.5370416258315,
+      "x": 479.78092199766843,
+      "y": -1401.5331353758315,
       "width": 784.2753277711561,
       "height": 469,
       "angle": 0,
@@ -156,8 +156,8 @@
       "index": "aO",
       "roundness": null,
       "seed": 707734972,
-      "version": 119,
-      "versionNonce": 566925430,
+      "version": 120,
+      "versionNonce": 1387023122,
       "isDeleted": false,
       "boundElements": [
         {
@@ -165,7 +165,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1789056386875,
+      "updated": 1789142046727,
       "link": null,
       "locked": false,
       "status": "pending",
@@ -181,8 +181,8 @@
     {
       "id": "g1_2W56mre4Ti0k8LJMQS",
       "type": "image",
-      "x": 594.4500528971358,
-      "y": -792.6649305555555,
+      "x": 446.71958414713583,
+      "y": -868.4618055555555,
       "width": 799.0446134868423,
       "height": 421.71799045138897,
       "angle": 0,
@@ -198,8 +198,8 @@
       "index": "aP",
       "roundness": null,
       "seed": 1326809092,
-      "version": 219,
-      "versionNonce": 2008850998,
+      "version": 299,
+      "versionNonce": 1296674254,
       "isDeleted": false,
       "boundElements": [
         {
@@ -207,7 +207,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1789056397892,
+      "updated": 1789142039610,
       "link": null,
       "locked": false,
       "status": "pending",
@@ -223,8 +223,8 @@
     {
       "id": "aiVH4Z8JMuteIjZLnXdyP",
       "type": "text",
-      "x": 948.5368584526909,
-      "y": -905.3237847222222,
+      "x": 986.3102959526909,
+      "y": -930.9644097222222,
       "width": 497.57952880859375,
       "height": 25,
       "angle": 0,
@@ -240,8 +240,8 @@
       "index": "aQ",
       "roundness": null,
       "seed": 1521076996,
-      "version": 137,
-      "versionNonce": 1049089270,
+      "version": 192,
+      "versionNonce": 1510145426,
       "isDeleted": false,
       "boundElements": [
         {
@@ -249,7 +249,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1789056399669,
+      "updated": 1789153748439,
       "link": null,
       "locked": false,
       "text": "En databases eliminar el boton Busqueda avanzada",
@@ -265,10 +265,10 @@
     {
       "id": "cQP4iiLOVsvBwk2jeOnxq",
       "type": "arrow",
-      "x": 1054.7912227777044,
-      "y": -876.5776909722223,
-      "width": 107.22153377443681,
-      "height": 94.6675347222224,
+      "x": 1066.8539210448348,
+      "y": -903.0230034722223,
+      "width": 75.1302634470776,
+      "height": 35.315972222222285,
       "angle": 0,
       "strokeColor": "#e03131",
       "backgroundColor": "transparent",
@@ -284,11 +284,11 @@
         "type": 2
       },
       "seed": 1097428868,
-      "version": 243,
-      "versionNonce": 73854634,
+      "version": 420,
+      "versionNonce": 1023852046,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1789059754608,
+      "updated": 1789153758092,
       "link": null,
       "locked": false,
       "points": [
@@ -297,20 +297,20 @@
           0
         ],
         [
-          -107.22153377443681,
-          94.6675347222224
+          -75.1302634470776,
+          35.315972222222285
         ]
       ],
       "lastCommittedPoint": null,
       "startBinding": {
         "elementId": "aiVH4Z8JMuteIjZLnXdyP",
-        "focus": 0.47209017744475074,
-        "gap": 3.7460937499998863
+        "focus": 0.49166806004033586,
+        "gap": 2.9414062499998863
       },
       "endBinding": {
         "elementId": "g1_2W56mre4Ti0k8LJMQS",
-        "focus": -0.42773671466701535,
-        "gap": 10.754774305555657
+        "focus": -0.35548761284295954,
+        "gap": 1
       },
       "startArrowhead": null,
       "endArrowhead": "arrow",
@@ -409,8 +409,8 @@
     {
       "id": "ut6Ys8b3n6nBm_b7bVoNC",
       "type": "text",
-      "x": 1238.1661987304688,
-      "y": -474.78125,
+      "x": 912.6154174804688,
+      "y": -450.71484375,
       "width": 193.61981201171875,
       "height": 25,
       "angle": 0,
@@ -426,11 +426,11 @@
       "index": "aV",
       "roundness": null,
       "seed": 485917572,
-      "version": 34,
-      "versionNonce": 766263100,
+      "version": 69,
+      "versionNonce": 1609397070,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1788988572241,
+      "updated": 1789159948111,
       "link": null,
       "locked": false,
       "text": "En la opcion /engine",
@@ -446,8 +446,8 @@
     {
       "id": "r2VTZc-aM7ds35jtzHsgv",
       "type": "text",
-      "x": 1181.8841094970703,
-      "y": -442.4140625,
+      "x": 827.9661407470703,
+      "y": -412.81640625,
       "width": 511.7594909667969,
       "height": 75,
       "angle": 0,
@@ -463,11 +463,11 @@
       "index": "aW",
       "roundness": null,
       "seed": 1759953156,
-      "version": 364,
-      "versionNonce": 425571388,
+      "version": 453,
+      "versionNonce": 2008854354,
       "isDeleted": false,
       "boundElements": [],
-      "updated": 1788988629036,
+      "updated": 1789160627962,
       "link": null,
       "locked": false,
       "text": "En el proyecto JettraDB en la pagina /engine\nNo se debe mostrar los botones de la parte superior\n+ DB, +UNIT SAMPLE DBS",
@@ -483,8 +483,8 @@
     {
       "id": "jCRAxGiUmPosmdQAhXbcI",
       "type": "image",
-      "x": 371.23152850964266,
-      "y": -2081.875540379666,
+      "x": 370.73152850964266,
+      "y": -2082.371634129666,
       "width": 827.1484065716544,
       "height": 483.652054398148,
       "angle": 0,
@@ -500,11 +500,11 @@
       "index": "aX",
       "roundness": null,
       "seed": 1166461994,
-      "version": 107,
-      "versionNonce": 14223914,
+      "version": 108,
+      "versionNonce": 1001477522,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1789059766501,
+      "boundElements": [],
+      "updated": 1789145676514,
       "link": null,
       "locked": false,
       "status": "pending",
@@ -540,7 +540,7 @@
       "version": 115,
       "versionNonce": 1568762870,
       "isDeleted": false,
-      "boundElements": null,
+      "boundElements": [],
       "updated": 1789059787792,
       "link": null,
       "locked": false,
